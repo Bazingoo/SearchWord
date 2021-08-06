@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SearchWord
@@ -40,8 +41,12 @@ namespace SearchWord
             string dir = "Teka";
             string path = Path.Combine(currentDir, dir);
 
+            //var thread = new Thread(() =>
+            //{
+
             foreach (var txtFiles in Directory.EnumerateFiles(path, "*.txt"))
             {
+
                 Console.WriteLine(txtFiles);
                 string[] lines = System.IO.File.ReadAllLines(txtFiles);
                 int i = 0;
@@ -54,10 +59,10 @@ namespace SearchWord
                         if (searchword.Equals(word))
                         {
                             Console.WriteLine($"У цьому файлі є збіг. Номер рядка: {i}");
-                            break;
                         }
                 }
             }
+            //});
         }
 
      
